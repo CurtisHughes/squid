@@ -24,13 +24,36 @@ const strikethroughConfig: DecorationConfig = {
     nodeName: "s"
 };
 
+const header1Config: DecorationConfig = {
+    name: "header1",
+    regex: /^#\s.*/g,
+    nodeName: "h1"
+};
+
+const header2Config: DecorationConfig = {
+    name: "header2",
+    regex: /^##\s.*/g,
+    nodeName: "h2"
+};
+
+const header3Config: DecorationConfig = {
+    name: "header3",
+    regex: /^###\s.*/g,
+    nodeName: "h3"
+};
+
+const blockquoteConfig: DecorationConfig = {
+    name: "blockquote",
+    regex: /^>\s.*/g,
+    nodeName: "blockquote"
+};
 
 const state = EditorState.create({
     schema, plugins: [
         history(),
         keymap({ "Mod-z": undo, "Mod-y": redo, "Mod-Shift-z": redo, "Mod-Shift-Z": redo }),
         keymap(baseKeymap),
-        decorations([boldConfig, italicConfig, strikethroughConfig]),
+        decorations([boldConfig, italicConfig, strikethroughConfig, header1Config, header2Config, header3Config, blockquoteConfig]),
     ],
 })
 
