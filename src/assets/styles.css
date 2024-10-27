@@ -1,0 +1,7 @@
+.editor {
+    height: 500px;
+    border: 1px solid black;
+    padding: 0 16px;
+    overflow-y: scroll;
+    white-space: pre-wrap;
+}
