@@ -4,14 +4,33 @@ import { EditorView } from "prosemirror-view"
 import { undo, redo, history } from "prosemirror-history"
 import { keymap } from "prosemirror-keymap"
 import { baseKeymap } from "prosemirror-commands"
-import { boldPlugin } from "./boldPlugin"
+import { decorations, DecorationConfig } from "./plugins/decorations";
+
+const boldConfig: DecorationConfig = {
+    name: "bold",
+    regex: /\*\*(.+?)\*\*/g,
+    nodeName: "strong"
+};
+
+const italicConfig: DecorationConfig = {
+    name: "italic",
+    regex: /_(.+?)_/g,
+    nodeName: "em"
+};
+
+const strikethroughConfig: DecorationConfig = {
+    name: "strikethrough",
+    regex: /~~(.+?)~~/g,
+    nodeName: "s"
+};
+
 
 const state = EditorState.create({
     schema, plugins: [
         history(),
         keymap({ "Mod-z": undo, "Mod-y": redo, "Mod-Shift-z": redo, "Mod-Shift-Z": redo }),
         keymap(baseKeymap),
-        boldPlugin,
+        decorations([boldConfig, italicConfig, strikethroughConfig]),
     ],
 })
 
