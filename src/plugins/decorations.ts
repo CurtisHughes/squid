@@ -1,8 +1,8 @@
-import { Plugin } from "prosemirror-state";
-import { Decoration, DecorationSet } from "prosemirror-view";
-import { Node as ProseMirrorNode } from "prosemirror-model";
-import { getChangedRanges } from "../utils";
-import { Range } from "../types";
+import { Plugin } from 'prosemirror-state';
+import { Decoration, DecorationSet } from 'prosemirror-view';
+import { Node as ProseMirrorNode } from 'prosemirror-model';
+import { getChangedRanges } from '../utils';
+import { Range } from '../types';
 
 export interface DecorationConfig {
     name: string;
@@ -25,13 +25,13 @@ export const decorations = (configs: DecorationConfig[]) => {
                 }
 
                 return newDecorationSet;
-            }
+            },
         },
         props: {
             decorations(state) {
                 return this.getState(state);
-            }
-        }
+            },
+        },
     });
 };
 
@@ -39,7 +39,7 @@ function applyDecorations(
     doc: ProseMirrorNode,
     changedRanges: Range[],
     existingDecorationSet: DecorationSet,
-    configs: DecorationConfig[]
+    configs: DecorationConfig[],
 ) {
     const newDecorations: Decoration[] = [];
 

@@ -8,5 +8,7 @@
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
     "eslint.validate": ["javascript", "javascriptreact", "html", "typescriptreact"],
-    "cSpell.words": ["keymap", "prosemirror", "tseslint"]
+    "cSpell.words": ["tseslint"],
+    "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" }
 }

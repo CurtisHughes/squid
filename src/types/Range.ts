@@ -1,1 +1,4 @@
-export interface Range { from: number; to: number; }
+export interface Range {
+    from: number;
+    to: number;
+}
