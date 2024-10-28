@@ -53,7 +53,7 @@ function applyDecorations(
 
     // Step 2: Apply new decorations based on the configuration and regex matches
     changedRanges.forEach(({ from, to }) => {
-        doc.nodesBetween(from - 1, to + 1, (node, pos) => {
+        doc.nodesBetween(Math.max(from - 1, 0), Math.min(to + 1, doc.content.size), (node, pos) => {
             if (node.isText && node.text) {
                 const text = node.text;
                 console.log('text: ', text);
